@@ -32,6 +32,16 @@ int dot(const vector3* vector1, const vector3* vector2) {
     return sum;
 }
 
+vector3* cross(const vector3* vector1, const vector3* vector2) {
+    vector3* cross_vector = malloc(sizeof(vector3));
+
+    cross_vector->x = vector1->y * vector2->z - vector1->z * vector2->y;
+    cross_vector->y = vector1->z * vector2->x - vector1->x * vector2->z;
+    cross_vector->z = vector1->x * vector2->y - vector1->y * vector2->x;
+
+    return cross_vector;
+}
+
 void print_vector3(const vector3* vector) {
     printf("(%d, %d, %d)\n", vector->x, vector->y, vector->z);
 }

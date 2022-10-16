@@ -16,9 +16,17 @@ int main() {
     // Test sub of vectors
     vector3* sub_v = sub(&v1, &v2);
     if (sub_v != NULL) {
-        printf("Substraction of vectors: ");
+        printf("Subtraction of vectors: ");
         print_vector3(sub_v);
         free(sub_v);
+    }
+
+    // Test cross of vectors
+    vector3* cross_v = cross(&v1, &v2);
+    if (cross_v != NULL) {
+        printf("Cross of vectors: ");
+        print_vector3(cross_v);
+        free(cross_v);
     }
 
     // Test dot product of vectors
