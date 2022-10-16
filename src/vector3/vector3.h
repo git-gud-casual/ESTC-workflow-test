@@ -1,11 +1,13 @@
 #ifndef MODULE
 #define MODULE
 
-typedef struct vector3 {
+typedef struct {
     int x;
     int y;
     int z;
 } vector3;
+
+vector3* create_vector(int, int, int);
 
 vector3* sum(const vector3*, const vector3*);
 vector3* sub(const vector3*, const vector3*);

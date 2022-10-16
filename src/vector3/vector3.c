@@ -2,34 +2,28 @@
 #include <malloc.h>
 #include <stdio.h>
 
+
+vector3* create_vector(int x, int y, int z) {
+    vector3* vector = malloc(sizeof(vector3));
+
+    if (vector != NULL) {
+        vector->x = x;
+        vector->y = y;
+        vector->z = z;
+    }
+    return vector;
+}
+
 vector3* sum(const vector3* vector1, const vector3* vector2) {
-    vector3* sum_vector = malloc(sizeof(vector3));
-
-    if (sum_vector != NULL) {
-        sum_vector->x = vector1->x + vector2->x;
-        sum_vector->y = vector1->y + vector2->y;
-        sum_vector->z = vector1->z + vector2->z;
-
-        return sum_vector;
-    }
-    else {
-        return NULL;
-    }
+    return create_vector(vector1->x + vector2->x,
+                         vector1->y + vector2->y,                     
+                         vector1->z + vector2->z);
 }
 
 vector3* sub(const vector3* vector1, const vector3* vector2) {
-    vector3* sub_vector = malloc(sizeof(vector3));
-
-    if (sub_vector != NULL) {
-        sub_vector->x = vector1->x - vector2->x;
-        sub_vector->y = vector1->y - vector2->y;
-        sub_vector->z = vector1->z - vector2->z;
-
-        return sub_vector;
-    }
-    else {
-        return NULL;
-    }
+    return create_vector(vector1->x - vector2->x, 
+                         vector1->y - vector2->y, 
+                         vector1->z - vector2->z);
 }
 
 int dot(const vector3* vector1, const vector3* vector2) {
@@ -43,18 +37,9 @@ int dot(const vector3* vector1, const vector3* vector2) {
 }
 
 vector3* cross(const vector3* vector1, const vector3* vector2) {
-    vector3* cross_vector = malloc(sizeof(vector3));
-
-    if (cross_vector != NULL) {
-        cross_vector->x = vector1->y * vector2->z - vector1->z * vector2->y;
-        cross_vector->y = vector1->z * vector2->x - vector1->x * vector2->z;
-        cross_vector->z = vector1->x * vector2->y - vector1->y * vector2->x;
-
-        return cross_vector;
-    }
-    else {
-        return NULL;
-    }
+    return create_vector(vector1->y * vector2->z - vector1->z * vector2->y,
+                         vector1->z * vector2->x - vector1->x * vector2->z, 
+                         vector1->x * vector2->y - vector1->y * vector2->x);
 }
 
 void print_vector3(const vector3* vector) {
