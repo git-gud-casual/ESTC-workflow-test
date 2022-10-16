@@ -8,7 +8,7 @@ OBJS := $(subst $(SRCDIR), $(BUILDDIR), $(OBJS))
 main: $(OBJS)
 	gcc -o $@ $^
 
-$(BUILDDIR)/%.o: %.c
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
 	gcc -c $^ -o $@
 
