@@ -8,8 +8,17 @@ int main() {
     // Test sum of vectors
     vector3* sum_v = sum(&v1, &v2);
     if (sum_v != NULL) {
+        printf("Sum of vectors: ");
         print_vector3(sum_v);
         free(sum_v);
+    }
+
+    // Test sub of vectors
+    vector3* sub_v = sub(&v1, &v2);
+    if (sub_v != NULL) {
+        printf("Substraction of vectors: ");
+        print_vector3(sub_v);
+        free(sub_v);
     }
 
     // Test dot product of vectors

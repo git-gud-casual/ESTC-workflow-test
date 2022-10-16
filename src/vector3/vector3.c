@@ -12,6 +12,16 @@ vector3* sum(const vector3* vector1, const vector3* vector2) {
     return sum_vector;
 }
 
+vector3* sub(const vector3* vector1, const vector3* vector2) {
+    vector3* sub_vector = malloc(sizeof(vector3));
+
+    sub_vector->x = vector1->x - vector2->x;
+    sub_vector->y = vector1->y - vector2->y;
+    sub_vector->z = vector1->z - vector2->z;
+
+    return sub_vector;
+}
+
 int dot(const vector3* vector1, const vector3* vector2) {
     int sum = 0;
 
@@ -23,5 +33,5 @@ int dot(const vector3* vector1, const vector3* vector2) {
 }
 
 void print_vector3(const vector3* vector) {
-    printf("x = %d, y = %d, z = %d\n", vector->x, vector->y, vector->z);
+    printf("(%d, %d, %d)\n", vector->x, vector->y, vector->z);
 }
